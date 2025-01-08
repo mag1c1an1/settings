@@ -1,0 +1,153 @@
+// 将键绑定放在此文件中以覆盖默认值auto[]
+[
+    {
+        "key": "ctrl+\\",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    // Trigger whichkey in empty editor group
+    {
+        "key": "space",
+        "command": "whichkey.show",
+        "when": "activeEditorGroupEmpty && focusedView == '' && !whichkeyActive && !inputFocus"
+    },
+    // Trigger whichkey when sidebar is in focus
+    {
+        "key": "space",
+        "command": "whichkey.show",
+        "when": "(sideBarFocus || auxiliaryBarFocus ) && !inputFocus && !whichkeyActive"
+    },
+    // quit outline
+    {
+        "key": "q",
+        "command": "workbench.action.toggleAuxiliaryBar",
+        "when": "auxiliaryBarFocus && view.outline.visible"
+    },
+    // quit file explorer
+    {
+        "key": "q",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "sideBarFocus && activeViewlet == 'workbench.view.explorer' && !inputFocus"
+    },
+    {
+        "key": "cmd+enter",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "enter",
+        "command": "-renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "enter",
+        "command": "list.select",
+        "when": "listFocus && !inputFocus"
+    },
+    { //remove 
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
+    },
+    { // make cursor back to editor
+        "key": "ctrl+l",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "!terminalFocus"
+    },
+    { // make cursor back to editor
+        "key": "ctrl+h",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "panelFocus && activePanel"
+    },
+    { // window move down
+        "key": "ctrl+j",
+        "command": "vim.remap",
+        "when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen",
+        "args": {
+            "after": [
+                "<c-w>",
+                "j"
+            ],
+        }
+    },
+    { // window move up
+        "key": "ctrl+k",
+        "command": "vim.remap",
+        "when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen && !panelFocus",
+        "args": {
+            "after": [
+                "<c-w>",
+                "k"
+            ],
+        }
+    },
+    { // window move left
+        "key": "ctrl+h",
+        "command": "vim.remap",
+        "when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen && !panelFocus",
+        "args": {
+            "after": [
+                "<c-w>",
+                "h"
+            ],
+        }
+    },
+    { // window move right
+        "key": "ctrl+l",
+        "command": "vim.remap",
+        "when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen",
+        "args": {
+            "after": [
+                "<c-w>",
+                "l"
+            ],
+        }
+    },
+    {
+        "key": "o",
+        "command": "list.select",
+        "when": "listFocus && !inputFocus && hasSearchResult && searchViewletFocus"
+    },
+    { // open file expoler use which key
+        "key": "e",
+        "command": "whichkey.triggerKey",
+        "args": {
+            "key": "e",
+            "when": "sideBarVisible && explorerViewletVisible"
+        },
+        "when": "whichkeyVisible && sideBarVisible && explorerViewletVisible",
+    },
+    { // open outline use which key
+        "key": "o",
+        "command": "whichkey.triggerKey",
+        "args": {
+            "key": "o",
+            "when": "view.outline.visible"
+        },
+        "when": "whichkeyVisible && view.outline.visible",
+    },
+    { // rename file
+        "key": "r",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    { // new file
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    { // delete file or folder
+        "key": "x",
+        "command": "deleteFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    { // delete file or folder
+        "key": "d",
+        "command": "deleteFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+]
